@@ -7,7 +7,7 @@ class AuthController extends BaseController
 {
     public function login()
     {
-        // require_once logger.php УБРАЛИ — он уже загружен в BaseController
+        // require_once logger.php
 
         // Уже авторизован → сразу на главную
         if (isset($_SESSION['admin_id'])) {
