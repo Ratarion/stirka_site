@@ -385,6 +385,10 @@ public function setPassword($password) {
 if ($user && password_verify($password, $user->password_hash)) { ... }
 ```
 
+![1778766389990](image/dev_guide/1778766389990.png)
+
+![1778766365868](image/dev_guide/1778766365868.png)
+
 ### 6.3. Защита от XSS
 
 В шаблонах используется функция `e()` (аналог `htmlspecialchars`).
@@ -392,9 +396,9 @@ if ($user && password_verify($password, $user->password_hash)) { ... }
 
 **php**
 
-```
-<td><?= e($b['last_name'] . ' ' . $b['first_name']) ?></td>
-```
+`<td><?= e($b['last_name'] . ' ' . $b['first_name']) ?>``</td>`
+
+![1778766431700](image/dev_guide/1778766431700.png)
 
 ### 6.4. Управление сессиями
 
@@ -424,6 +428,10 @@ $this->log->info('Попытка входа', ['ip' => $_SERVER['REMOTE_ADDR']])
 $this->log->warning('Неудачная попытка входа', ['username' => $username]);
 ```
 
+![1778766613958](image/dev_guide/1778766613958.png)
+
+![1778766548139](image/dev_guide/1778766548139.png)
+
 ### 6.6. Контроль доступа по ролям
 
 В каждом контроллере проверяется `$_SESSION['role']`.
@@ -437,12 +445,9 @@ if (($_SESSION['role'] ?? 0) !== 1) {
 }
 ```
 
-### 6.7. Защита от CSRF (частичная)
+![1778766648604](image/dev_guide/1778766648604.png)
 
-В формах используется метод `POST`, но нет отдельных токенов – это слабое место.
-**Рекомендация:** добавить скрытое поле `csrf_token` и проверять его в контроллерах.
-
-### 6.8. Безопасность файловой системы
+### 6.7. Безопасность файловой системы
 
 * Файлы логов находятся вне `public_html` (директория `logs/`).
 * Конфигурации (`config/db_connect.php`) не доступны напрямую через веб.
