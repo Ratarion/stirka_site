@@ -169,6 +169,10 @@ php -r "echo password_hash('ваш_пароль', PASSWORD_DEFAULT);"
 
 ## 3. Резервное копирование
 
+### 3.1. Резервное копирование базы данных
+
+![1778768775756](image/deploy/1778768775756.png)
+
 ---
 
 ## 4. Часто встречающиеся проблемы при развёртывании
@@ -251,10 +255,8 @@ RUN chown -R www-data:www-data /var/www/html
 **bash**
 
 ```
-docker-compose up -d
+docker-compose up -d --build
 ```
-
-> [СКРИНШОТ: успешный `docker-compose up -d`
 
 ---
 
